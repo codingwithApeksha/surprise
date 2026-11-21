@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Adiiii's Little Solar System</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 45%,#171b43,#070713 68%,#020207);color:#fff;font-family:system-ui,sans-serif;min-height:100vh;overflow-x:hidden}
+header{text-align:center;padding:28px 14px 8px}h1{font-family:Georgia,serif;color:#ffe0fa;text-shadow:0 0 18px #e78cff;margin:0;font-size:clamp(2rem,7vw,3.6rem)}header p{color:#c7c5ef;margin:10px auto;max-width:650px}
+.space{position:relative;width:min(92vw,620px);height:min(92vw,620px);max-height:620px;margin:10px auto 0;border-radius:50%;display:grid;place-items:center}
+.sun{width:100px;height:100px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle,#fff5bf,#ffd35a 40%,#f58b33 70%);box-shadow:0 0 35px #ffc34f,0 0 90px #ff8c38;z-index:2;font-weight:bold;color:#57320d;text-align:center}
+.orbit{position:absolute;border:1px solid rgba(200,200,255,.25);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.o1{width:34%;height:34%}.o2{width:52%;height:52%}.o3{width:70%;height:70%}.o4{width:90%;height:90%}
+.planet{position:absolute;z-index:4;border:0;cursor:pointer;border-radius:50%;display:grid;place-items:center;box-shadow:0 0 18px currentColor;transition:transform .2s;animation:orbitSpin 18s linear infinite}
+.planet:hover{transform:scale(1.15)}
+.p1{width:45px;height:45px;left:calc(50% + 96px);top:calc(50% - 22px);background:radial-gradient(circle at 30% 30%,#b9fff5,#39b4d0 65%,#16617b);color:#6beaff}
+.p2{width:57px;height:57px;left:calc(50% - 165px);top:calc(50% - 28px);background:radial-gradient(circle at 30% 30%,#ffe0a6,#e88c54 65%,#8c4936);color:#ffc08b}
+.p3{width:65px;height:65px;left:calc(50% + 185px);top:calc(50% - 32px);background:radial-gradient(circle at 30% 30%,#d6c8ff,#7860ca 65%,#42347d);color:#b5a2ff}
+.p4{width:50px;height:50px;left:calc(50% - 255px);top:calc(50% - 25px);background:radial-gradient(circle at 30% 30%,#ffbfe2,#de5b9b 65%,#7d2e68);color:#ff9fd8}
+@keyframes orbitSpin{0%{filter:brightness(1)}50%{filter:brightness(1.18)}100%{filter:brightness(1)}}
+.note{min-height:105px;max-width:650px;margin:0 auto 18px;padding:18px 24px;text-align:center;color:#f9e9ff;font-size:1.12rem;line-height:1.6}
+.note .title{display:block;color:#d8cbff;font-weight:700;margin-bottom:6px}
+.hint{text-align:center;color:#a9a6d6;font-size:.9rem;padding-bottom:26px}
+@media(max-width:540px){.space{width:94vw;height:94vw}.sun{width:78px;height:78px;font-size:.9rem}.p1{left:calc(50% + 65px)}.p2{left:calc(50% - 112px)}.p3{left:calc(50% + 118px)}.p4{left:calc(50% - 172px)}}
+</style>
+</head>
+<body>
+<header>
+<h1>Adiiii's Little Solar System 🪐</h1>
+<p>Tap a planet. Each one has a little something to tell you.</p>
+</header>
+<div class="space" aria-label="Interactive solar system">
+<div class="orbit o1"></div><div class="orbit o2"></div><div class="orbit o3"></div><div class="orbit o4"></div>
+<div class="sun">Adiiii<br>☀️</div>
+<button class="planet p1" aria-label="Planet one" onclick="showNote(0)">🌍</button>
+<button class="planet p2" aria-label="Planet two" onclick="showNote(1)">🪐</button>
+<button class="planet p3" aria-label="Planet three" onclick="showNote(2)">🌙</button>
+<button class="planet p4" aria-label="Planet four" onclick="showNote(3)">💗</button>
+</div>
+<div class="note" id="note"><span class="title">Choose a planet ✨</span>There's a tiny message waiting on each one.</div>
+<div class="hint">Made with a little stardust and a lot of thought ♡</div>
+<script>
+const notes=[
+["Earth 🌍","For the comfort of being around you. You have a way of making ordinary moments feel a little nicer."],
+["Saturn 🪐","For your beautiful chaos. You can be a whole menace and somehow still be adorable."],
+["Moon 🌙","For the nights when you need peace. I hope you remember you're appreciated, even on the quiet days."],
+["Pink Planet 💗","No dramatic speech. Just a tiny reminder that you have a special place in someone's universe."]
+];
+function showNote(i){const n=document.getElementById('note');n.innerHTML='<span class="title">'+notes[i][0]+'</span>'+notes[i][1];}
+</script>
+</body></html>
